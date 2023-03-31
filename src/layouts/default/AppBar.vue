@@ -1,7 +1,11 @@
 <template>
   <v-app-bar flat>
+    <RouterLink to="/">
+      <img src="@/assets/logo.png"
+           alt=""
+           style="width: 40px; margin-left: 20px;">
+    </RouterLink>
     <v-app-bar-title>
-      <!-- <v-icon icon="mdi-circle-slice-6" /> -->
       <span class="d-none d-sm-inline">
         The Complete Encyclopedia of Rick and Morty
       </span>
@@ -9,9 +13,9 @@
     </v-app-bar-title>
 
     <v-tabs class="d-none d-md-flex">
-      <v-tab>Characters</v-tab>
-      <v-tab>Locations</v-tab>
-      <v-tab>Episodes</v-tab>
+      <v-tab to="/characters">Characters</v-tab>
+      <v-tab to="/locations">Locations</v-tab>
+      <v-tab to="episodes">Episodes</v-tab>
     </v-tabs>
 
     <v-app-bar-nav-icon @click="menuOpen = !menuOpen"
@@ -21,24 +25,29 @@
 
   <v-navigation-drawer flat
                        v-model="menuOpen"
-                       location="right">
+                       location="right"
+                       class="d-md-none">
     <v-list density="compact"
             nav>
       <v-list-item prepend-icon="mdi-space-invaders"
                    title="Characters"
-                   value="characters"></v-list-item>
+                   value="characters"
+                   to="/characters"></v-list-item>
       <v-list-item prepend-icon="mdi-earth"
                    title="Locations"
-                   value="locations"></v-list-item>
+                   value="locations"
+                   to="/locations"></v-list-item>
       <v-list-item prepend-icon="mdi-movie-open-outline"
                    title="Episodes"
-                   value="episodes"></v-list-item>
+                   value="episodes"
+                   to="episodes"></v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import { RouterLink } from 'vue-router';
 
 const menuOpen = ref(false);
 </script>
