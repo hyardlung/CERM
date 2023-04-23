@@ -12,4 +12,20 @@ const CHARACTERS_QUERY = gql`
   }
 `
 
-export { CHARACTERS_QUERY }
+const LOCATIONS_QUERY = gql`
+  query Locations {
+    locations {
+      results {
+        name
+        type
+        dimension
+        residents {
+          id
+          name
+        }
+      }
+    }
+  }
+`
+
+export { CHARACTERS_QUERY, LOCATIONS_QUERY }
