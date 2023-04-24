@@ -8,3 +8,7 @@
 // @use 'vuetify' with (
 //   $color-pack: false
 // );
+
+@use 'vuetify/settings' with (
+  $overlay-opacity: .8
+);

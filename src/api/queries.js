@@ -5,8 +5,18 @@ const CHARACTERS_QUERY = gql`
     characters {
       results {
         id
+      name
+      image
+      status
+      type
+      gender
+      origin {
         name
-        image
+      }
+      episode {
+        episode
+      }
+      created
       }
     }
   }
